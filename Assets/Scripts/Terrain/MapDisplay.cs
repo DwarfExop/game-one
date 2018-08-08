@@ -17,6 +17,5 @@ public class MapDisplay : MonoBehaviour {
     {
         mesh.GetComponent<MeshFilter>().sharedMesh = meshData.CreateMesh();
         mesh.GetComponent<MeshRenderer>().sharedMaterial.mainTexture = texture;
-        mesh.AddComponent<MeshCollider>();
     }
 }

@@ -8,7 +8,7 @@ public class TerrainManager : MonoBehaviour {
 	void Start () {
         MapGenerator mapGen = FindObjectOfType<MapGenerator>();
         mapGen.drawMode = MapGenerator.DrawMode.Mesh;
-        mapGen.GenerateMap();
+        mapGen.DrawMapInEditor();
     }
 	
 	// Update is called once per frame

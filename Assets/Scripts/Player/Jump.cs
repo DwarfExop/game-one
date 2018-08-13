@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Jump : MonoBehaviour {
+
+    [Range(1,20)]
     public float JumpStrength = 10;
 
     private bool canJump = false;

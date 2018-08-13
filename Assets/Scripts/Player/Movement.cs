@@ -6,8 +6,9 @@ public class Movement : MonoBehaviour {
 
 	public float movementSpeed = 5.0f;
     public float rotSpeed = 10;
-    public Transform destination;
-    
+    public GameObject destination;
+    public float checkRadius = 5f;
+
     Vector3 targetPosition;
     bool moving = false;
 
@@ -37,8 +38,10 @@ public class Movement : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit, 1000))
         {
+            Vector3 hitMarker = hit.point;
+            destination.SetActive(true);
             targetPosition = hit.point;
-            destination.position = new Vector3(targetPosition.x, destination.position.y, targetPosition.z);
+            destination.transform.position = new Vector3(targetPosition.x, targetPosition.y + 0.2f, targetPosition.z);
 
             moving = true;
         }
@@ -54,7 +57,11 @@ public class Movement : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, 
                                                  targetPosition, 
                                                  movementSpeed * Time.deltaTime);
-
-        if (transform.position == targetPosition) moving = false;
+        
+        if ((transform.position - destination.transform.position).magnitude < checkRadius)
+        {
+            moving = false;
+            destination.SetActive(false);
+        }
     }
 }

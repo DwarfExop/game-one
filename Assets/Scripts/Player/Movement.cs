@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour {
             Vector3 hitMarker = hit.point;
             destination.SetActive(true);
             targetPosition = hit.point;
-            destination.transform.position = new Vector3(targetPosition.x, targetPosition.y + 0.2f, targetPosition.z);
+            destination.transform.position = new Vector3(targetPosition.x, targetPosition.y + 0.01f, targetPosition.z);
 
             moving = true;
         }
@@ -57,7 +57,8 @@ public class Movement : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, 
                                                  targetPosition, 
                                                  movementSpeed * Time.deltaTime);
-        
+
+
         if ((transform.position - destination.transform.position).magnitude < checkRadius)
         {
             moving = false;

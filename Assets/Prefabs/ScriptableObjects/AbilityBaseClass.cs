@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityBaseClass : MonoBehaviour {
+public class Ability: ScriptableObject {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public string abilityName;
+    public string abilityDescription;
+
 }

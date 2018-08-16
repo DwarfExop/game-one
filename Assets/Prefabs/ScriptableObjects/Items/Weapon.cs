@@ -12,6 +12,8 @@ public class Weapon : Item {
     [Range(0,100)]
     public float critChance;
 
+    public Ability[] abilities = new Ability[3];
+
     protected override void ItemAction()
     {
 
